@@ -1,0 +1,9 @@
+[
+  { "Tipo": "DIN912", "Metrica": "M6", "Longitud": 16, "RutaServidor": "\\\\servidor\\tornillos\\DIN912_M6x16.par" },
+  { "Tipo": "DIN912", "Metrica": "M6", "Longitud": 20, "RutaServidor": "\\\\servidor\\tornillos\\DIN912_M6x20.par" },
+  { "Tipo": "DIN912", "Metrica": "M8", "Longitud": 20, "RutaServidor": "\\\\servidor\\tornillos\\DIN912_M8x20.par" },
+  { "Tipo": "DIN912", "Metrica": "M8", "Longitud": 25, "RutaServidor": "\\\\servidor\\tornillos\\DIN912_M8x25.par" },
+  { "Tipo": "DIN912", "Metrica": "M10", "Longitud": 30, "RutaServidor": "\\\\servidor\\tornillos\\DIN912_M10x30.par" },
+  { "Tipo": "DIN933", "Metrica": "M8", "Longitud": 25, "RutaServidor": "\\\\servidor\\tornillos\\DIN933_M8x25.par" },
+  { "Tipo": "DIN933", "Metrica": "M10", "Longitud": 35, "RutaServidor": "\\\\servidor\\tornillos\\DIN933_M10x35.par" }
+]

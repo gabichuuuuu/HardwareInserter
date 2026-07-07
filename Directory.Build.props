@@ -1,0 +1,23 @@
+<Project>
+  <!--
+    Propiedades comunes a todos los proyectos de la solución HardwareInserter.
+    Réplica de la convención usada en CadLinter/Directory.Build.props.
+  -->
+
+  <PropertyGroup>
+    <!-- .NET Framework 4.8: máxima compatibilidad con interop COM de Solid Edge. -->
+    <TargetFramework>net48</TargetFramework>
+
+    <LangVersion>9</LangVersion>
+
+    <Nullable>enable</Nullable>
+    <WarningsAsErrors>Nullable</WarningsAsErrors>
+
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
+</Project>

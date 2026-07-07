@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/HardwareInserter.App/HardwareInserter.App.csproj" />
+    <Project Path="src/HardwareInserter.Core/HardwareInserter.Core.csproj" />
+    <Project Path="src/HardwareInserter.SolidEdge/HardwareInserter.SolidEdge.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/HardwareInserter.Core.Tests/HardwareInserter.Core.Tests.csproj" />
+  </Folder>
+</Solution>

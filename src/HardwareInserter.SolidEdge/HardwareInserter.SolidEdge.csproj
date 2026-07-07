@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>HardwareInserter.SolidEdge</RootNamespace>
+    <AssemblyName>HardwareInserter.SolidEdge</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HardwareInserter.Core\HardwareInserter.Core.csproj" />
+  </ItemGroup>
+
+  <!--
+    ═══════════════════════════════════════════════════════════════════════════
+    REFERENCIA COM A SOLID EDGE
+    ═══════════════════════════════════════════════════════════════════════════
+
+    Interop.SolidEdge (paquete NuGet de la comunidad Solid Edge) expone los
+    namespaces SolidEdgeFramework/SolidEdgeAssembly/SolidEdgePart/SolidEdgeGeometry.
+    Con EmbedInteropTypes=true los tipos se incrustan en el ensamblado compilado:
+    no se distribuye ningún binario de Siemens y no hace falta tener Solid Edge
+    instalado para compilar. En tiempo de ejecución esta macro se conecta al
+    Solid Edge realmente instalado en esa máquina vía Marshal.GetActiveObject.
+    ═══════════════════════════════════════════════════════════════════════════
+  -->
+  <ItemGroup>
+    <PackageReference Include="Interop.SolidEdge" Version="220.2.0">
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
