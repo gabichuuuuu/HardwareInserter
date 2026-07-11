@@ -27,8 +27,11 @@ jobs:
       - name: Run Core tests
         run: dotnet test tests/HardwareInserter.Core.Tests/HardwareInserter.Core.Tests.csproj -c Release
 
-      - name: Build solution (Release x64)
-        run: dotnet build HardwareInserter.slnx -c Release -p:Platform=x64
+      - name: Build add-in (Release x64)
+        # The .slnx has no "Release|x64" solution-level configuration (Core/Tests are AnyCPU,
+        # only AddIn/SolidEdge are x64), so build the AddIn project directly — same as
+        # dev/register-addin.ps1. Its ProjectReferences pull in Core and SolidEdge transitively.
+        run: dotnet build src/HardwareInserter.AddIn/HardwareInserter.AddIn.csproj -c Release -p:Platform=x64
 
       - name: Install Inno Setup
         run: choco install innosetup --no-progress -y
