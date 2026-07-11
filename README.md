@@ -66,6 +66,10 @@ ISCC.exe installer\HardwareInserter.iss
 Pushing a `vX.Y.Z` tag triggers the `.github/workflows/release.yml` workflow, which builds,
 generates the installer, and publishes it as a GitHub Release asset.
 
+## License
+
+[MIT](LICENSE)
+
 ---
 
 # HardwareInserter (Español)
@@ -133,3 +137,7 @@ ISCC.exe installer\HardwareInserter.iss
 
 Un push de un tag `vX.Y.Z` dispara el workflow `.github/workflows/release.yml`, que compila,
 genera el instalador y lo publica como asset del Release de GitHub.
+
+## Licencia
+
+[MIT](LICENSE)
