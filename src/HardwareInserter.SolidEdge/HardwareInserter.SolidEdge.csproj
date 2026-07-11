@@ -24,7 +24,7 @@
   -->
   <ItemGroup>
     <PackageReference Include="Interop.SolidEdge" Version="220.2.0">
-      <EmbedInteropTypes>true</EmbedInteropTypes>
+      <EmbedInteropTypes>false</EmbedInteropTypes>
     </PackageReference>
   </ItemGroup>
 

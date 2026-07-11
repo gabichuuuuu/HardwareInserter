@@ -1,0 +1,61 @@
+<Window x:Class="HardwareInserter.AddIn.UI.HardwarePickerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:HardwareInserter.AddIn.UI"
+        Title="Hardware Inserter"
+        Width="520" Height="640"
+        ResizeMode="CanResize"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
+        Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+    <DockPanel Margin="8">
+        <!-- Barra superior: cambio de carpeta raíz -->
+        <Grid DockPanel.Dock="Top" Margin="0,0,0,8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Librería:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+            <TextBox Grid.Column="1" x:Name="RootPathBox" IsReadOnly="True" VerticalAlignment="Center"/>
+            <Button Grid.Column="2" x:Name="BrowseButton" Content="Carpeta..." Margin="6,0,0,0" Padding="8,2" Click="BrowseButton_Click"/>
+        </Grid>
+
+        <!-- Filtro de texto -->
+        <DockPanel DockPanel.Dock="Top" Margin="0,0,0,8">
+            <TextBlock Text="Filtro:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+            <TextBox x:Name="FilterBox" TextChanged="FilterBox_TextChanged"/>
+        </DockPanel>
+
+        <!-- Pie: agujero capturado + opciones de inserción + botón insertar -->
+        <Border DockPanel.Dock="Bottom" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderThickness="0,1,0,0" Padding="0,8,0,0" Margin="0,8,0,0">
+            <StackPanel>
+                <Grid Margin="0,0,0,6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="HoleInfo" Grid.Column="0" Text="Agujero: no capturado" VerticalAlignment="Center"/>
+                    <Button Grid.Column="1" x:Name="CaptureHoleButton" Content="Capturar Agujero" Padding="8,2" Click="CaptureHoleButton_Click"/>
+                </Grid>
+                <CheckBox x:Name="ApplyConstraintsCheckBox" Content="Aplicar restricciones (Axial + Planar)" IsChecked="True" Margin="0,0,0,6"
+                          ToolTip="Marcado para tornillería (alinea eje y asiento). Desmarcado para anchors (inserción libre)."/>
+                <Button x:Name="InsertButton" Content="Insertar" Padding="16,4" HorizontalAlignment="Right" Click="InsertButton_Click" IsEnabled="False"/>
+                <TextBlock x:Name="StatusText" Text="" Margin="0,6,0,0" TextWrapping="Wrap"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Árbol de librería -->
+        <TreeView x:Name="LibraryTree" ItemsSource="{Binding}" MouseDoubleClick="LibraryTree_MouseDoubleClick">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type local:CategoryNode}"
+                                          ItemsSource="{Binding Children}">
+                    <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                </HierarchicalDataTemplate>
+                <DataTemplate DataType="{x:Type local:LibraryItemNode}">
+                    <TextBlock Text="{Binding Label}"/>
+                </DataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+    </DockPanel>
+</Window>
